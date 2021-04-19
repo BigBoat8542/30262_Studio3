@@ -38,6 +38,9 @@
 var map = new mapboxgl.Map({
   container: 'map', // container id
   style: 'mapbox://styles/luke8542/cknp41q4r57vs17l8ucb4kau3' // replace this with your style URL
+  map.getCanvas().style.cursor = 'default';
+  map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
+
 });
     // Add a legend
   for (i = 0; i < layers.length; i++) {
