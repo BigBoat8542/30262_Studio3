@@ -38,7 +38,6 @@
 var map = new mapboxgl.Map({
   container: 'map'; // container id
   style: 'mapbox://styles/luke8542/cknp41q4r57vs17l8ucb4kau3';
-
 });
   map.on('load', function() {
     // Add a legend
@@ -55,7 +54,7 @@ var map = new mapboxgl.Map({
   item.appendChild(key);
   item.appendChild(value);
   legend.appendChild(item);
-}
+};
     // Add the information window
   map.on('mousemove', function(e) {
   var states = map.queryRenderedFeatures(e.point, {
@@ -68,6 +67,9 @@ var map = new mapboxgl.Map({
     document.getElementById('pd').innerHTML = '<p>Hover over a state!</p>';
   }
 });
+         })  ;
+      map.getCanvas().style.cursor = 'default';
+  
   </script>
 </body>
 
