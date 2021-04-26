@@ -3,12 +3,12 @@ ul {
  margin: 1px;
  padding: 1px;
  overflow: hidden;
- background-color: white;
+ background-color: green;
 }
 
 li {
  float: left;
- border-right: 2px solid white;
+ border-right: 2px solid blue;
 }
 
 /* Add a border to all( but not the last) list items */
@@ -18,7 +18,7 @@ li:last-child {
 
 li a {
  display: block;
- color: black;
+ color: white;
  text-align: left;
  padding: 15px 17px;
  text-decoration: none;
