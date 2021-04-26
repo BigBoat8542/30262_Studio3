@@ -23,10 +23,13 @@
     <li><a href="mapbox-turfjs.html" target="_self">Output 3</a></li>
   </ul>
   <br>
+
+
   <!-- Add a div to give the map somewhere to go -->
   <div id='map'></div>
   <div class='map-overlay' id='features'><h2>US population density</h2><div id='pd'><p>Hover over a state!</p></div></div>
   <div class='map-overlay' id='legend'></div>
+
   <script>
     /* Add your access token*/
       mapboxgl.accessToken = 'pk.eyJ1IjoibHVrZTg1NDIiLCJhIjoiY2s4cnE5bnRrMGhpajNtcG00b3lreXlycyJ9.AcYo0A3SUOqMDzGmF83huQ';
@@ -55,17 +58,20 @@
           item.appendChild(value);
           legend.appendChild(item);
         };
+
         /* Add mouse over action */
         map.on('mousemove', function(e) {
           var states = map.queryRenderedFeatures(e.point, {
             layers: ['statedata']
           });
+
           if (states.length > 0) {
             document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.name + '</strong></h3><p><strong><em>' + states[0].properties.density + '</strong> people per square mile</em></p>';
           } else {
             document.getElementById('pd').innerHTML = '<p>Hover over a state!</p>';
           }
         });
+
       })  ;
       map.getCanvas().style.cursor = 'default';
   </script>
