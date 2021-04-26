@@ -2,16 +2,19 @@
 <html>
 
 <head>
-  <title>Studio Three</title>
+  <title>Studio Week 3</title>
   <!-- Add Mapbox GL JS JavaScript file -->
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Add in the Mapbox GL JS CSS file -->
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Add CSS styling info for the map -->
   <style type="text/css">
-<!-- Adding styling info for page layout by reading in a CSS file -->
-  <link rel="stylesheet" href="styles.css"></link>
+
+
   </style>
+  <!-- Adding styling info for page layout by reading in a CSS file -->
+  <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -26,36 +29,36 @@
   </ul>
   <br>
 
-
   <!-- Add a div to give the map somewhere to go -->
+
   <div id='map'></div>
-  <div class='map-overlay' id='features'><h2>US population density</h2><div id='pd'><p>Hover over a state!</p></div></div>
-  <div class='map-overlay' id='legend'></div>
+<div class='map-overlay' id='features'><h2>US population density</h2><div id='pd'><p>Hover over a state!</p></div></div>
+<div class='map-overlay' id='legend'></div>
+
 
   <script>
-    /* Add your access token*/
-      mapboxgl.accessToken = 'pk.eyJ1IjoibHVrZTg1NDIiLCJhIjoiY2s4cnE5bnRrMGhpajNtcG00b3lreXlycyJ9.AcYo0A3SUOqMDzGmF83huQ';
+    // Add your access token
+     mapboxgl.accessToken = 'pk.eyJ1IjoibHVrZTg1NDIiLCJhIjoiY2s4cnE5bnRrMGhpajNtcG00b3lreXlycyJ9.AcYo0A3SUOqMDzGmF83huQ';
 
-    /* Create a variable called "map" to house your map*/
-      var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/luke8542/cknp41q4r57vs17l8ucb4kau3'
-      });
+    // Create a variable called "map" to house your map
+    var map = new mapboxgl.Map({
+  container: "map", // container id
+  style: 'mapbox://styles/luke8542/cknp41q4r57vs17l8ucb4kau3' // replace this with your style URL
+});
 
-     // wait for map to load before adjusting it
 map.on('load', function () {
 // make a pointer cursor
 map.getCanvas().style.cursor = 'default';
- 
+
 // set map bounds to the continental US
 map.fitBounds([
 [-133.2421875, 16.972741],
 [-47.63671875, 52.696361]
 ]);
- 
+
 // make a pointer cursor
 map.getCanvas().style.cursor = 'default';
- 
+
 // define layer names
 var layers = [
 '0-10',
@@ -77,7 +80,7 @@ var colors = [
 '#BD0026',
 '#800026'
 ];
- 
+
 // create legend
 for (i = 0; i < layers.length; i++) {
 var layer = layers[i];
@@ -86,20 +89,20 @@ var item = document.createElement('div');
 var key = document.createElement('span');
 key.className = 'legend-key';
 key.style.backgroundColor = color;
- 
+
 var value = document.createElement('span');
 value.innerHTML = layer;
 item.appendChild(key);
 item.appendChild(value);
 legend.appendChild(item);
 }
- 
+
 // change info window on hover
 map.on('mousemove', function (e) {
 var states = map.queryRenderedFeatures(e.point, {
 layers: ['statedata']
 });
- 
+
 if (states.length > 0) {
 document.getElementById('pd').innerHTML =
 '<h3><strong>' +
@@ -113,6 +116,6 @@ document.getElementById('pd').innerHTML =
 }
 });
 });
-</script>
+  </script>
 </body>
 </html>
