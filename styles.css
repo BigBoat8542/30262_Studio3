@@ -80,9 +80,9 @@ p {
 }
 
 #features {
-  top: 200px;
+  top: 0px;
   height: 100px;
-  margin-top: 20px;
+  margin-top: 200px;
   width: 250px;
 }
 
